@@ -17,6 +17,7 @@ public class MyForm extends JFrame implements ItemListener{
 
     private List<TFuzzy> tFuzzyList;
 
+
     public MyForm(List<TFuzzy> tFuzzyList){
         this.tFuzzyList = tFuzzyList;
 
@@ -24,7 +25,7 @@ public class MyForm extends JFrame implements ItemListener{
         setMaximumSize(new Dimension(600, 600));
         setMinimumSize(new Dimension(600, 400));
         //setBounds(100, 100, 400, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //JFrame.EXIT_ON_CLOSE);
 
         initDesign();
         initEvent();
@@ -73,7 +74,7 @@ public class MyForm extends JFrame implements ItemListener{
 
         int m = 50;
         int dx = 500 + m;
-        int dy = 300 + m;
+        int dy = 200 + m;
 
         g2d.drawLine(m, m, m, dy);
         g2d.drawLine(m, dy, dx, dy);
@@ -114,7 +115,7 @@ public class MyForm extends JFrame implements ItemListener{
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange()==e.DESELECTED)
+        if (e.getStateChange()== ItemEvent.DESELECTED)
             return;
         JRadioButton rb =  (JRadioButton)e.getSource();
         int i = Integer.parseInt(rb.getClientProperty("tFuzzy").toString());

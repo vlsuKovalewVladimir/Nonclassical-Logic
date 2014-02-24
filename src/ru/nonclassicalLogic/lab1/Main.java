@@ -10,6 +10,7 @@ public class Main{
         List<TFuzzy> tFuzzyList = new ArrayList<TFuzzy>();
 
         tFuzzyList.add(new TFuzzy(NameFunction.ONE, 2, 4));
+        tFuzzyList.get(0).setCount(20);
         tFuzzyList.add(new TFuzzy(NameFunction.TWO, 2, 4, 6));
         tFuzzyList.add(new TFuzzy(NameFunction.THREE, 2, 6, 3));
         tFuzzyList.add(new TFuzzy(NameFunction.FOUR,  1, 6, 3));
