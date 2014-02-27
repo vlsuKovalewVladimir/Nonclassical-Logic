@@ -11,14 +11,15 @@ public class Main{
 
         tFuzzyList.add(new TFuzzy(NameFunction.ONE, 2, 4));
         tFuzzyList.add(new TFuzzy(NameFunction.TWO, 2, 4, 6));
-        tFuzzyList.add(new TFuzzy(NameFunction.THREE, 2, 6, 4));
+        tFuzzyList.add(new TFuzzy(NameFunction.THREE, 2, 10, 4));
         tFuzzyList.add(new TFuzzy(NameFunction.FOUR,  1, 6, 3));
         tFuzzyList.add(new TFuzzy(NameFunction.FIVE,  2, 6, 4, 5));
         tFuzzyList.add(new TFuzzy(NameFunction.SIX,   7, 2));
-        //tFuzzyList.get(5).setCount(100);
         tFuzzyList.add(new TFuzzy(NameFunction.SEVEN, 2, 5));
         tFuzzyList.add(new TFuzzy(NameFunction.EIGHT, 7, 2, 4));
         tFuzzyList.add(null);
+
+        tFuzzyList.get(5).setCount(13);
 
         new MyForm(tFuzzyList);
 
@@ -36,8 +37,9 @@ public class Main{
             if (tf != null){
                 System.out.println("---------------------------------");
                 for (Expansion a : tf.getListExpansion()) {
-                    System.out.printf("y = %.2f\t_x = %.2f\tx_ = %.2f\n", a.y, a._x, a.x_);
+                    System.out.printf("y = %.60f\t_x = %.2f\tx_ = %.2f\n", a.y, a._x, a.x_);
                 }
+                System.out.println(tf.getListExpansion().size());
             }
         }
     }

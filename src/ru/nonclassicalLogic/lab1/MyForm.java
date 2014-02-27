@@ -22,10 +22,10 @@ public class MyForm extends JFrame implements ItemListener{
         this.tFuzzyList = tFuzzyList;
 
         setTitle("Лабораторная работа №1");
-        setMaximumSize(new Dimension(600, 600));
-        setMinimumSize(new Dimension(600, 400));
-        //setBounds(100, 100, 400, 500);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
         initDesign();
         initEvent();
@@ -62,7 +62,7 @@ public class MyForm extends JFrame implements ItemListener{
             rb.addItemListener(this);
     }
 
-    private void drawGraph(Graphics g, TFuzzy tFuzzy){
+    private void drawGraph(Graphics g, TFuzzy tFuzzy){ // TODO: реализовать класс JPanel
         if (tFuzzy == null)
             return;
 
@@ -76,9 +76,9 @@ public class MyForm extends JFrame implements ItemListener{
         List<Expansion> listExpansion = tFuzzy.getListExpansion();
 
         int m = 50;
-        int dx = 500 + m;
-        int dy = 200 + m;
-        int countX = 10;
+        int dx = 700 + m;
+        int dy = 400 + m;
+        int countX = 20;
 
         g2d.drawLine(m, m, m, dy);
         g2d.drawLine(m, dy, dx, dy);
@@ -95,6 +95,7 @@ public class MyForm extends JFrame implements ItemListener{
         g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{10,5}, 0));
 
         g2d.drawLine(m, (dy+m)/2, dx, (dy+m)/2);
+        g2d.drawLine(m, m, dx, m);
 
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
@@ -111,7 +112,7 @@ public class MyForm extends JFrame implements ItemListener{
         g2d.setStroke(new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
         for (int i = 1; i < listExpansion.size(); i++){
-            int _x1 = (int)((dx - m)*listExpansion.get(i-1)._x/countX + m);
+            int _x1 = (int)((dx - m)*listExpansion.get(i-1)._x/countX + m); // TODO: Создать фунцию вычисления
             int y1 = dy - (int)((dy-m)*listExpansion.get(i-1).y);
             int _x2 = (int)((dx - m)*listExpansion.get(i)._x/countX + m);
             int y2 = dy - (int)((dy-m)*listExpansion.get(i).y);
