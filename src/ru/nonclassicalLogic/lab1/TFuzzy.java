@@ -9,6 +9,7 @@ public class TFuzzy {
     private NameFunction nameFunction;
 
     private double a, b, c, d;
+
     private List<Expansion> listExpansion;
 
     public TFuzzy(NameFunction nameFunction, double a, double b){
@@ -39,15 +40,12 @@ public class TFuzzy {
         return nameFunction;
     }
 
-    public Expansion getExpansion(int i) throws IndexOutOfBoundsException {
-        if (i < count)
-            return listExpansion.get(i);
-        else
-            throw new IndexOutOfBoundsException();
+    public List<Expansion> getListExpansion() {
+        return listExpansion;
     }
 
     private void calculation(NameFunction nameFunction1, double a, double b, double c, double d){
-        listExpansion = new ArrayList();
+        listExpansion = new ArrayList<Expansion>();
         for (double y = 0; y <= 1.0; y += 1.0 / this.count){
             Expansion temp = new Expansion();
             temp.y = y;

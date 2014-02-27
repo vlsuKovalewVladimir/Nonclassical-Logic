@@ -68,49 +68,58 @@ public class MyForm extends JFrame implements ItemListener{
 
         jPanel.paint(g);
         Graphics2D g2d = (Graphics2D) g;
+
         g2d.setRenderingHint ( RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON );
-        g2d.setPaint(Color.GREEN);
+        g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+
+        List<Expansion> listExpansion = tFuzzy.getListExpansion();
 
         int m = 50;
         int dx = 500 + m;
         int dy = 200 + m;
+        int countX = 10;
 
         g2d.drawLine(m, m, m, dy);
         g2d.drawLine(m, dy, dx, dy);
 
         for (double i = 0.1; i <= 1; i += 0.1){
-            int x1 = m - 5;
-            int x2 = m + 5;
+            int x1 = m - 2;
+            int x2 = m + 2;
             int y1 = dy - (int)((dy-m)*i);
             g2d.drawLine(x1, y1, x2, y1);
             g2d.drawString(String.format("%.1f", i), x1 - 25, y1 + 5);
         }
 
+        g2d.setPaint(Color.RED);
         g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{10,5}, 0));
 
         g2d.drawLine(m, (dy+m)/2, dx, (dy+m)/2);
 
-        double minX = 999999;
-        double maxX = 0;
+        g2d.setColor(Color.BLACK);
+        g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
-        for (int i = 0; i < tFuzzy.getCount(); i++){
-            double _x = tFuzzy.getExpansion(i)._x;
-            double x_ = tFuzzy.getExpansion(i).x_;
-            if (minX > _x) minX = _x;
-            if (minX > _x) minX = x_;
-            if (maxX < _x) maxX = _x;
-            if (maxX < _x) maxX = x_;
+        for (int i = 1; i <= countX; i++){
+            int y1 = dy - 2;
+            int y2 = dy + 2;
+            int x1 = (dx - m)*i/countX + m;
+            g2d.drawLine(x1, y1, x1, y2);
+            g2d.drawString(String.valueOf(i), x1 - 5, dy + 25);
         }
 
-        System.out.println(""+ minX + "\n"+maxX);
+        g2d.setColor(Color.BLUE);
+        g2d.setStroke(new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
-       // for (dou)
-
-        for (int i = 0; i < tFuzzy.getCount(); i++){
-            g.drawLine(100,100,1,(int)tFuzzy.getExpansion(1)._x *100);
+        for (int i = 1; i < listExpansion.size(); i++){
+            int _x1 = (int)((dx - m)*listExpansion.get(i-1)._x/countX + m);
+            int y1 = dy - (int)((dy-m)*listExpansion.get(i-1).y);
+            int _x2 = (int)((dx - m)*listExpansion.get(i)._x/countX + m);
+            int y2 = dy - (int)((dy-m)*listExpansion.get(i).y);
+            int x1_ = (int)((dx - m)*listExpansion.get(i-1).x_/countX + m);
+            int x2_ = (int)((dx - m)*listExpansion.get(i).x_/countX + m);
+            g2d.drawLine(_x1, y1, _x2, y2);
+            g2d.drawLine(x1_, y1, x2_, y2);
         }
-
     }
 
     @Override
