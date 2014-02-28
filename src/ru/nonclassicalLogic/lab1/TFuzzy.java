@@ -8,15 +8,18 @@ public class TFuzzy {
     private int count;
     private NameFunction nameFunction;
 
-    public double a, b, c, d; // TODO: Добавить get и set (private)
+    private double a;
+    private double b;
+    private double c;
+    private double d;
 
     private List<Expansion> listExpansion;
 
     public TFuzzy(NameFunction nameFunction, double a, double b){
-        this(nameFunction, a, b, 0);
+        this(nameFunction, a, b, Double.NaN);
     }
     public TFuzzy(NameFunction nameFunction, double a, double b, double c){
-        this(nameFunction, a, b, c, 0);
+        this(nameFunction, a, b, c, Double.NaN);
     }
     public TFuzzy(NameFunction nameFunction, double a, double b, double c, double d){
         this.nameFunction = nameFunction;
@@ -24,7 +27,7 @@ public class TFuzzy {
         this.b = b;
         this.c = c;
         this.d = d;
-        this.count = 10;
+        setCount(100);
         calculation(nameFunction);
     }
 
@@ -34,6 +37,19 @@ public class TFuzzy {
     public void setCount(int count) {
         this.count = count;
         calculation(nameFunction);
+    }
+
+    public double getA() {
+        return a;
+    }
+    public double getB() {
+        return b;
+    }
+    public double getC() {
+        return c;
+    }
+    public double getD() {
+        return d;
     }
 
     public NameFunction getNameFunction() {
@@ -47,6 +63,7 @@ public class TFuzzy {
     private Expansion calculationFunction(NameFunction nameFunction, double y){
         Expansion temp = new Expansion();
         temp.y = y;
+        temp.x_ = Double.NaN;
         switch (nameFunction) {
             case ONE:
                 // TODO: Не работает
@@ -54,8 +71,6 @@ public class TFuzzy {
                     temp._x = Math.sqrt(y/2)*(b-a) + a;
                 else
                     temp._x =  Math.sqrt((1-y)/2)*(b-a) + a;
-
-                // TODO: Сделать стандартное значение для temp.x_
                 break;
             case TWO:
                 // TODO: Доделать

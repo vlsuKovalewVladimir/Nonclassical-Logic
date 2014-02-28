@@ -1,5 +1,7 @@
 package ru.nonclassicalLogic.lab1;
 
+import ru.nonclassicalLogic.lab1.form.MyForm;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,30 +11,24 @@ public class Main{
 
         List<TFuzzy> tFuzzyList = new ArrayList<TFuzzy>();
 
-        tFuzzyList.add(new TFuzzy(NameFunction.ONE, 2, 4));
-        tFuzzyList.add(new TFuzzy(NameFunction.TWO, 2, 4, 6));
+        tFuzzyList.add(new TFuzzy(NameFunction.ONE,   2, 6));
+        tFuzzyList.add(new TFuzzy(NameFunction.TWO,   2, 4,  6));
         tFuzzyList.add(new TFuzzy(NameFunction.THREE, 2, 10, 4));
-        tFuzzyList.add(new TFuzzy(NameFunction.FOUR,  1, 6, 3));
-        tFuzzyList.add(new TFuzzy(NameFunction.FIVE,  2, 6, 4, 5));
-        tFuzzyList.add(new TFuzzy(NameFunction.SIX,   7, 2));
+        tFuzzyList.add(new TFuzzy(NameFunction.FOUR,  1, 6,  3));
+        tFuzzyList.add(new TFuzzy(NameFunction.FIVE,  2, 6,  4, 5));
+        tFuzzyList.add(new TFuzzy(NameFunction.SIX,   5, 1.5));
         tFuzzyList.add(new TFuzzy(NameFunction.SEVEN, 2, 5));
-        tFuzzyList.add(new TFuzzy(NameFunction.EIGHT, 7, 2, 4));
+        tFuzzyList.add(new TFuzzy(NameFunction.EIGHT, 7, 2,  4));
         tFuzzyList.add(null);
 
-        tFuzzyList.get(5).setCount(13);
+        tFuzzyList.get(5).setCount(1300);
 
         new MyForm(tFuzzyList);
 
-       /* TFuzzy[] tFuzzes = new TFuzzy[9];
-        tFuzzes[1] = new TFuzzy(NameFunction.ONE, 2, 4);
-        tFuzzes[2] = new TFuzzy(NameFunction.TWO, 2, 4, 6);
-        tFuzzes[3] = new TFuzzy(NameFunction.THREE, 2, 6, 3);
-        tFuzzes[4] = new TFuzzy(NameFunction.FOUR,  1, 6, 3);
-        tFuzzes[5] = new TFuzzy(NameFunction.FIVE,  2, 6, 4, 5);
-        tFuzzes[6] = new TFuzzy(NameFunction.SIX,   7, 2);
-        tFuzzes[7] = new TFuzzy(NameFunction.SEVEN, 2, 5);
-        tFuzzes[8] = new TFuzzy(NameFunction.EIGHT, 7, 2, 4);*/
+        printTFuzzyList(tFuzzyList);
+    }
 
+    private static void printTFuzzyList(List<TFuzzy> tFuzzyList){
         for(TFuzzy tf:tFuzzyList){
             if (tf != null){
                 System.out.println("---------------------------------");
