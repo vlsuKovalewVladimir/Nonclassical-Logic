@@ -66,14 +66,19 @@ public class TFuzzy {
         temp.x_ = Double.NaN;
         switch (nameFunction) {
             case ONE:
-                // TODO: Не работает
-                if (y <= 0.5)
-                    temp._x = Math.sqrt(y/2)*(b-a) + a;
-                else
-                    temp._x =  Math.sqrt((1-y)/2)*(b-a) + a;
+                temp._x = (y<=0.5) ?
+                        Math.sqrt(y/2)*(b-a) + a :
+                        b - Math.sqrt((1-y)/2)*(b-a);
+                    //temp._x =  Math.sqrt((1-y)/2)*(b-a) + a; // 0.5 < y <= 1
                 break;
             case TWO:
-                // TODO: Доделать
+                temp._x = (y<=0.5) ?
+                        Math.sqrt(y/2)*(b-a) + a :
+                        b - Math.sqrt((1-y)/2)*(b-a);
+                temp.x_ = (c-b-a)+((y<=0.5) ?
+                        Math.sqrt((y)/2)*(c+b-a-c) + c :
+                        c+b-a - Math.sqrt((1-y)/2)*(c+b-a-c));
+
                 break;
             case THREE:
                 temp._x =  (c - a)*y + a;
