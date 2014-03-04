@@ -21,7 +21,7 @@ public class MyForm extends JFrame implements ItemListener{
     public MyForm(List<TFuzzy> tFuzzyList){
         this.tFuzzyList = tFuzzyList;
 
-        setTitle("Лабораторная работа №1");
+        setTitle("Лабораторная работа №1, Ковалев В.Е ИТс-112");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(800, 600);
         setResizable(false);
@@ -39,6 +39,7 @@ public class MyForm extends JFrame implements ItemListener{
 
         JPanel jPanel = new JPanel();
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
+        jPanel.setBackground(Color.LIGHT_GRAY);
 
         btnAdd = new JButton("Добавить");
         btnRemove = new JButton("Удалить");
@@ -52,13 +53,14 @@ public class MyForm extends JFrame implements ItemListener{
                 str += "(" + tFuzzyList.get(i).getNameFunction().toString() + ")";
             rbs[i] = new JRadioButton(str);
             rbs[i].putClientProperty("tFuzzy", i);
+            rbs[i].setBackground(Color.LIGHT_GRAY);
             bg.add(rbs[i]);
             jPanel.add(rbs[i]);
         }
 
-        jPanel.add(btnAdd);
+        /*jPanel.add(btnAdd);
         jPanel.add(btnRemove);
-        jPanel.add(btnEdit);
+        jPanel.add(btnEdit);*/
 
         // Отображение элементов
         this.getContentPane().setLayout(new BorderLayout(10, 10));

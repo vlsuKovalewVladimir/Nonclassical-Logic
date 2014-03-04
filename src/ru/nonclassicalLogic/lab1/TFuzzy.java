@@ -27,7 +27,7 @@ public class TFuzzy {
         this.b = b;
         this.c = c;
         this.d = d;
-        setCount(100);
+        setCount(500);
         calculation(nameFunction);
     }
 
@@ -63,22 +63,18 @@ public class TFuzzy {
     private Expansion calculationFunction(NameFunction nameFunction, double y){
         Expansion temp = new Expansion();
         temp.y = y;
-        temp.x_ = Double.NaN;
+        temp.x_ = temp._x = Double.NaN;
         switch (nameFunction) {
             case ONE:
                 temp._x = (y<=0.5) ?
-                        Math.sqrt(y/2)*(b-a) + a :
+                        a + Math.sqrt(y/2)*(b-a) :
                         b - Math.sqrt((1-y)/2)*(b-a);
-                    //temp._x =  Math.sqrt((1-y)/2)*(b-a) + a; // 0.5 < y <= 1
                 break;
             case TWO:
                 temp._x = (y<=0.5) ?
-                        Math.sqrt(y/2)*(b-a) + a :
+                        a + Math.sqrt(y/2)*(b-a) :
                         b - Math.sqrt((1-y)/2)*(b-a);
-                temp.x_ = (c-b-a)+((y<=0.5) ?
-                        Math.sqrt((y)/2)*(c+b-a-c) + c :
-                        c+b-a - Math.sqrt((1-y)/2)*(c+b-a-c));
-
+                temp.x_ = (c+b) - temp._x;
                 break;
             case THREE:
                 temp._x =  (c - a)*y + a;
@@ -92,15 +88,15 @@ public class TFuzzy {
                 temp.x_ = -(b - d)*y + b;
                 break;
             case SIX:
-                temp._x = Math.sqrt(-Math.log(y)*2.0)*b + a;
-                temp.x_ = -Math.sqrt(-Math.log(y)*2.0)*b + a;
+                temp._x = - Math.sqrt(-Math.log(y)*2.0)*b + a;
+                temp.x_ =  Math.sqrt(-Math.log(y)*2.0)*b + a;
                 break;
             case SEVEN:
                 temp._x = -Math.log((1/y)-1)/a + b;
                 break;
             case EIGHT:
-                temp._x = Math.sqrt(-Math.log(y)*2.0)*b + a;
-                temp.x_ = -Math.sqrt(-Math.log(y)*2.0)*c + a;
+                temp._x = - Math.sqrt(-Math.log(y)*2.0)*b + a;
+                temp.x_ = Math.sqrt(-Math.log(y)*2.0)*c + a;
                 break;
 
             default:
