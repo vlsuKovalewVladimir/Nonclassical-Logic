@@ -5,6 +5,14 @@ import java.util.List;
 
 public class TFuzzy {
 
+    @Override
+    public String toString() {
+        String result = "(";
+        result += getNameFunction().toString();
+        result += ")";
+        return result;
+    }
+
     private int count;
     private NameFunction nameFunction;
 
