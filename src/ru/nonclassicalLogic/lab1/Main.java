@@ -1,11 +1,27 @@
 package ru.nonclassicalLogic.lab1;
 
-import ru.nonclassicalLogic.lab1.form.MyForm;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import ru.nonclassicalLogic.lab1.model.Expansion;
+import ru.nonclassicalLogic.lab1.model.NameFunction;
+import ru.nonclassicalLogic.lab1.model.TFuzzy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main{
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
 
@@ -19,13 +35,10 @@ public class Main{
         tFuzzyList.add(new TFuzzy(NameFunction.SIX,   5, 1.3));
         tFuzzyList.add(new TFuzzy(NameFunction.SEVEN, 2, 5));
         tFuzzyList.add(new TFuzzy(NameFunction.EIGHT, 7, 1.6, 0.5));
-        //tFuzzyList.add(null);
-
-        tFuzzyList.get(7).setCount(1300);
-
-        new MyForm(tFuzzyList);
 
         printTFuzzyList(tFuzzyList);
+
+        launch(args);
     }
 
     private static void printTFuzzyList(List<TFuzzy> tFuzzyList){
@@ -39,4 +52,5 @@ public class Main{
             }
         }
     }
+
 }

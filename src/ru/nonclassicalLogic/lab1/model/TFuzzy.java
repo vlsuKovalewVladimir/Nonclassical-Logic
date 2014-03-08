@@ -1,4 +1,4 @@
-package ru.nonclassicalLogic.lab1;
+package ru.nonclassicalLogic.lab1.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class TFuzzy {
         this.b = b;
         this.c = c;
         this.d = d;
-        setCount(500);
+        setCount(100);
         calculation(nameFunction);
     }
 

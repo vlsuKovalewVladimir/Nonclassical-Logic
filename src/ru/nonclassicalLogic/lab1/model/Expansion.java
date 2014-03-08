@@ -1,4 +1,4 @@
-package ru.nonclassicalLogic.lab1;
+package ru.nonclassicalLogic.lab1.model;
 
 public class Expansion {
     public double y;
