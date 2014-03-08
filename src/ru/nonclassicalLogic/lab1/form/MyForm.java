@@ -13,7 +13,6 @@ public class MyForm extends JFrame implements ItemListener{
 
     private JRadioButton[] rbs;
     private GraphPanel graphPanel;
-    private JButton btnAdd, btnRemove, btnEdit;
 
     private List<TFuzzy> tFuzzyList;
 
@@ -41,10 +40,6 @@ public class MyForm extends JFrame implements ItemListener{
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
         jPanel.setBackground(Color.LIGHT_GRAY);
 
-        btnAdd = new JButton("Добавить");
-        btnRemove = new JButton("Удалить");
-        btnEdit = new JButton("Изменить");
-
         rbs = new JRadioButton[tFuzzyList.size()];
         ButtonGroup bg = new ButtonGroup();
         for (int i = 0; i < rbs.length; i++){
@@ -57,10 +52,6 @@ public class MyForm extends JFrame implements ItemListener{
             bg.add(rbs[i]);
             jPanel.add(rbs[i]);
         }
-
-        /*jPanel.add(btnAdd);
-        jPanel.add(btnRemove);
-        jPanel.add(btnEdit);*/
 
         // Отображение элементов
         this.getContentPane().setLayout(new BorderLayout(10, 10));
