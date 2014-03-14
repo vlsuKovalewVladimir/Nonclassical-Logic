@@ -14,11 +14,21 @@ Fuzzy logic (неклассическая логика)
 
 Ковалев Владимир Евгеньевич
 
-Установка (компиляция)
-----------------------
+Компиляция
+----------
 
 ```sh
 git clone https://github.com/vlsuKovalewVladimir/fuzzy-logic.git
+cd fuzzy-logic
+mkdir out
+javac -sourcepath ./src -d ./out src/ru/fuzzyLogic/lab1/Main.java
+```
+
+Запуск
+------
+
+```sh
+java -classpath ./out ru.fuzzyLogic.lab1.Main
 ```
 
 Контактная информация
