@@ -1,4 +1,4 @@
-package ru.nonclassicalLogic.lab1;
+package ru.fuzzyLogic.lab1;
 
 import java.util.ArrayList;
 import java.util.List;

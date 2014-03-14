@@ -1,6 +1,6 @@
-package ru.nonclassicalLogic.lab1.form;
+package ru.fuzzyLogic.lab1.form;
 
-import ru.nonclassicalLogic.lab1.TFuzzy;
+import ru.fuzzyLogic.lab1.TFuzzy;
 
 import javax.swing.*;
 import java.awt.*;
