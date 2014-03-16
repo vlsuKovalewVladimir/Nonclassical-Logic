@@ -26,7 +26,7 @@ mkdir out
 javac -sourcepath ./src -d ./out src/ru/fuzzyLogic/lab1/Main.java
 ```
 
-Из файла run.sh
+Из файла `run.sh`
 
 ```sh
 #!/bin/sh
@@ -51,7 +51,7 @@ exit 0
 java -classpath ./out ru.fuzzyLogic.lab1.Main
 ```
 
-Из файла run.sh
+Из файла `run.sh`
 
 ```sh
 sh run.sh
